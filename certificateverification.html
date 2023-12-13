@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <style>
+            body{
+                background-color: skyblue;
+            }
+            body,label{
+                color:black;
+            }
+        </style>
+    </head>
+</html>
+<body>
+    <br>
+    <label for="certificateID">ENTER CERTIFICATE ID</label>
+    <input type="text" id="certificateID">
+    <button onclick="verfycertificate()">verify</button>
+    
+    <div id="verificationResult"></div>
+    
+    <script>
+        function verifycertificate() {
+            const certificateID = document.getElementByID("certificateID").value;
+            
+            const certificateData = {
+                "BGFC-O1-0002":"https://drive.google.com/file/d/1w4o99GE2rvzgEuCkjAqcwyEgtzdOhyIS/view"
+                "XYZ789": "https://drive.google.com/file/d/xyz789/view"
+            };
+
+            const resultDiv = document.getElementByid("verficationResult");
+            if (certificateID in certificateData) {
+                const certificateLink = certificateData[certificateID];
+                resultDiv.innerHTML= '<p>Certificate ID "' + certiicateID + '"is valid.<p>';
+                resultDiv.innerHTML += '<a href="' + certificateLink + '" target="_blank" rel="noopener">Download Certificate</a>';
+            
+                const downloadLink = resultDiv.querySelctor('a');
+                downloadLink.style.color = 'red';
+                        } else {
+                            resultDiv.innerHTML = '<p>Certificate ID "'+ certificateId + '" is not valid.</p>';
+                        }
+                }           
+    </script>
+</body>
+</html>
